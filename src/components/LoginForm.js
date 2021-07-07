@@ -21,14 +21,14 @@ class LoginForm extends React.Component {
     event.preventDefault()
     const { username, password } = this.state
     if (username && password){
-      this.props.onSubmit(username, password)
+      this.props.handleLogin(username, password)
     }
     console.log("updated Login state# 2", this.state)
   }
 
   render() {
     return (
-      <form >
+      <form  onSubmit={event => this.handleLogin(event)}>
         <div>
           <label>
             Username
@@ -54,7 +54,6 @@ class LoginForm extends React.Component {
         <div>
           <button 
           type="submit"
-          onSubmit={event => this.handleLogin(event)}
           >Log in</button>
         </div>
       </form>
